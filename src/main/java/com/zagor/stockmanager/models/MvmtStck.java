@@ -1,11 +1,10 @@
 package com.zagor.stockmanager.models;
 
-import java.util.List;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,17 +14,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="categories")
-public class Categories extends AbstractEntity{
-	
-	@Column(name="code_category")
-	private String codeCategory;
+public class MvmtStck extends AbstractEntity {
 	
 	@Column(name="designation")
 	private String designation;
 	
-	@OneToMany(mappedBy ="category")
-	private List<Article> articles;
-
+	@Column(name="date_mvt")
+    private Instant datemvt;
+	
+	@Column(name="quantite")
+    private BigDecimal quantity;
+	
+	@Column(name="article")
+    private Article article;
+    
 
 }
